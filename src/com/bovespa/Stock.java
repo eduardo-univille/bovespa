@@ -3,13 +3,17 @@ package com.bovespa;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Stock {
+public class Stock implements Comparable<Stock> {
     private String code;
     private LocalDate date;
     private BigDecimal openPrice;
     private BigDecimal closePrice;
     private BigDecimal maxPrice;
     private BigDecimal minPrice;
+
+    public int compareTo(Stock stock) {
+        return code.compareTo(stock.code);
+    }
 
     public String getCode() {
         return code;
