@@ -7,9 +7,9 @@ import org.junit.Test;
 
 public class StockReaderTest {
     @Test
-    public void readTest() throws Exception {
+    public void readAsArrayTest() throws Exception {
         StockReader stockReader = new StockReader();
-        Stock[] stocks = stockReader.read("COTAHIST_A2016_MIN.TXT");
+        Stock[] stocks = stockReader.readAsArray("COTAHIST_A2016_MIN.TXT");
         for (Stock stock : stocks) {
             System.out.println(stock.getCode());
         }
@@ -18,7 +18,7 @@ public class StockReaderTest {
     @Test
     public void readPetrobrasTest() throws Exception {
         StockReader stockReader = new StockReader();
-        Stock[] stocks = stockReader.read("COTAHIST_A2016.TXT");
+        Stock[] stocks = stockReader.readAsArray("COTAHIST_A2016.TXT");
         for (Stock stock : stocks) {
             LocalDate date = stock.getDate();
             if (date.getYear() == 2016 && date.getMonthValue() == 3 && date.getDayOfMonth() == 21
@@ -32,7 +32,7 @@ public class StockReaderTest {
     @Test
     public void readValeTest() throws Exception {
         StockReader stockReader = new StockReader();
-        Stock[] stocks = stockReader.read("COTAHIST_A2016.TXT");
+        Stock[] stocks = stockReader.readAsArray("COTAHIST_A2016.TXT");
         int days = 0;
         BigDecimal result = BigDecimal.ZERO;
         for (Stock stock : stocks) {
